@@ -1,148 +1,320 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Webet Beersu Cafe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #fef8ed; padding: 20px; }
-        .header { background: #1e3c2c; color: white; padding: 30px; border-radius: 20px; text-align: center; }
-        .menu-item { background: white; margin: 10px 0; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .price { color: #c17b4c; font-weight: bold; }
-        button { background: #1e3c2c; color: white; border: none; padding: 8px 20px; border-radius: 30px; cursor: pointer; }
-        .cart { background: white; margin-top: 20px; padding: 20px; border-radius: 20px; max-width: 600px; margin: 20px auto; }
-        .total { font-size: 1.3rem; font-weight: bold; margin: 15px 0; }
-        .copy-btn { background: #e0d6c8; color: #1e3c2c; padding: 4px 12px; border-radius: 20px; border: none; cursor: pointer; }
-        footer { text-align: center; margin-top: 30px; color: #5a4a3a; }
-        @media (max-width: 600px) { .menu-item { flex-direction: column; gap: 10px; text-align: center; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Webet Beersu Café & Restaurant | Digital Menu</title>
+  <!-- Google Fonts + simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fef8ed;
+      color: #2c2418;
+      padding: 2rem 1rem;
+      line-height: 1.4;
+    }
+
+    .menu-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* header */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #b45f2b, #7a3e1a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #5e3a22;
+      border-top: 2px solid #e2c7a3;
+      display: inline-block;
+      padding-top: 0.5rem;
+    }
+
+    /* category grid */
+    .category {
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+      padding: 1.8rem 1.5rem;
+      margin-bottom: 2rem;
+      transition: all 0.2s;
+    }
+    .category-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      border-left: 6px solid #c27e3a;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .category-title span {
+      font-size: 2rem;
+    }
+
+    /* menu grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* menu card */
+    .menu-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #f3e5cf;
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.12);
+      border-color: #e9cfaa;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      background-color: #f7efdf;
+      display: block;
+    }
+
+    .card-info {
+      padding: 1rem 1.2rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .item-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #3a2a1c;
+      letter-spacing: -0.2px;
+    }
+    .price {
+      font-weight: 700;
+      background: #f7e9da;
+      padding: 0.25rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #b45a2b;
+    }
+
+    /* small note for images credit */
+    .footer-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #9b7b5c;
+      margin-top: 2rem;
+      border-top: 1px solid #eedbc0;
+      padding-top: 1.5rem;
+    }
+    .footer-note a {
+      color: #b45f2b;
+      text-decoration: none;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 1rem;
+      }
+      .category {
+        padding: 1.2rem;
+      }
+      .category-title {
+        font-size: 1.5rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .card-img {
+        height: 145px;
+      }
+    }
+  </style>
 </head>
 <body>
+<div class="menu-container">
+  <div class="hero">
+    <h1>🍽️ Webet Beersu Café & Restaurant</h1>
+    <p>Authentic Ethiopian flavors • Fresh ingredients • Cozy vibe</p>
+  </div>
 
-<div class="header">
-    <h1>WEBET BEERSU CAFE</h1>
-    <p>Addis Ababa | Call 0911718700</p>
+  <!-- ======================= MAIN DISHES ======================= -->
+  <div class="category">
+    <div class="category-title">
+      <span>🥘</span> Main Dishes
+    </div>
+    <div class="menu-grid" id="main-dishes-grid"></div>
+  </div>
+
+  <!-- ======================= CAKES & SNACKS ======================= -->
+  <div class="category">
+    <div class="category-title">
+      <span>🍰</span> Cakes & Snacks
+    </div>
+    <div class="menu-grid" id="snacks-grid"></div>
+  </div>
+
+  <!-- ======================= JUICES & SHAKES ======================= -->
+  <div class="category">
+    <div class="category-title">
+      <span>🥤</span> Juices & Shakes
+    </div>
+    <div class="menu-grid" id="drinks-grid"></div>
+  </div>
+
+  <!-- ======================= SALADS ======================= -->
+  <div class="category">
+    <div class="category-title">
+      <span>🥗</span> Salads
+    </div>
+    <div class="menu-grid" id="salads-grid"></div>
+  </div>
+
+  <!-- ======================= EXTRAS ======================= -->
+  <div class="category">
+    <div class="category-title">
+      <span>🍳</span> Extras
+    </div>
+    <div class="menu-grid" id="extras-grid"></div>
+  </div>
+
+  <!-- ======================= MEAT DISHES ======================= -->
+  <div class="category">
+    <div class="category-title">
+      <span>🍖</span> Meat Specialties
+    </div>
+    <div class="menu-grid" id="meat-grid"></div>
+  </div>
+
+  <div class="footer-note">
+    📸 Food images from <a href="https://unsplash.com" target="_blank">Unsplash</a> & <a href="https://pexels.com" target="_blank">Pexels</a> (free stock) — representative dish visuals.<br>
+    ✨ Prices in Ethiopian Birr (ETB) | All taxes included
+  </div>
 </div>
-
-<div id="menuList" style="max-width:600px; margin:20px auto;"></div>
-
-<div class="cart">
-    <h3>Your Order</h3>
-    <div id="cartItems">No items yet</div>
-    <div class="total" id="totalPrice">Total: 0 ETB</div>
-    <button id="orderBtn">Place Order</button>
-</div>
-
-<div class="cart">
-    <h3>Payment</h3>
-    <p><strong>CBE:</strong> 1000234567890 <button class="copy-btn" data-copy="1000234567890">Copy</button></p>
-    <p><strong>TeleBirr:</strong> 0911718700 <button class="copy-btn" data-copy="0911718700">Copy</button></p>
-</div>
-
-<footer>
-    <p>© Webet Beersu Cafe | Fast Delivery & Pickup</p>
-</footer>
 
 <script>
-    const MENU = [
-        { id: 1, name: "Beyaynetu (Mixed Veg)", price: 300 },
-        { id: 2, name: "Yebeg Tibs (Lamb)", price: 600 },
-        { id: 3, name: "Gomen Bisega", price: 350 },
-        { id: 4, name: "Special Pizza", price: 850 },
-        { id: 5, name: "Cheese Burger", price: 470 },
-        { id: 6, name: "Mango Juice", price: 150 }
-    ];
+  // ----------------------------------------------
+  // DIGITAL MENU DATA (based on real Webet Beersu)
+  // ----------------------------------------------
+  // Main dishes (11 items)
+  const mainDishes = [
+    { name: "Tegabino", price: 200, img: "https://images.pexels.com/photos/1279330/ethiopian-food-platter-1279330.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
+    { name: "Yetome Firfir", price: 200, img: "https://images.pexels.com/photos/958545/ethiopian-injera-firfir-958545.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
+    { name: "Beyayentu", price: 300, img: "https://images.pexels.com/photos/3026810/ethiopian-vegetarian-platter-3026810.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥘" },
+    { name: "Shero with Tomato", price: 220, img: "https://images.pexels.com/photos/958548/chickpea-stew-shero-958548.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍜" },
+    { name: "Suf Fitfit", price: 200, img: "https://images.pexels.com/photos/1063433/ethiopian-bread-fitfit-1063433.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥗" },
+    { name: "Telba Fitfit", price: 200, img: "https://images.pexels.com/photos/4004967/flax-seed-ethiopian-dish-4004967.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥣" },
+    { name: "Pasta with Vegetables", price: 220, img: "https://images.pexels.com/photos/1279330/vegetable-pasta-1279330.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍝" },
+    { name: "Rice with Vegetables", price: 220, img: "https://images.pexels.com/photos/1640777/veggie-rice-bowl-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍚" },
+    { name: "Tegabino with Suf", price: 230, img: "https://images.pexels.com/photos/3992873/ethiopian-tibs-3992873.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
+    { name: "Tegabino with Pasta", price: 220, img: "https://images.pexels.com/photos/1438672/pasta-meal-1438672.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍝" },
+    { name: "Tegabino with Firfir", price: 220, img: "https://images.pexels.com/photos/3979134/ethiopian-firfir-platter-3979134.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" }
+  ];
 
-    let cart = [];
+  // Cakes & Snacks
+  const snacks = [
+    { name: "Tekorach", price: 100, img: "https://images.pexels.com/photos/1120462/coffee-cake-slice-1120462.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍰" },
+    { name: "Black Forest", price: 130, img: "https://images.pexels.com/photos/4110010/black-forest-cake-4110010.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍫" },
+    { name: "White Forest", price: 130, img: "https://images.pexels.com/photos/291528/white-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍰" },
+    { name: "Bokesegna", price: 130, img: "https://images.pexels.com/photos/4553118/ethiopian-snack-bread-4553118.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🧁" },
+    { name: "Milifoni", price: 130, img: "https://images.pexels.com/photos/1408311/mille-feuille-1408311.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥐" },
+    { name: "Torta 1 kilo", price: 1100, img: "https://images.pexels.com/photos/291528/celebratory-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🎂" },
+    { name: "Torta 2 kilo", price: 2200, img: "https://images.pexels.com/photos/291528/large-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🎂" },
+    { name: "Sanbusa", price: 50, img: "https://images.pexels.com/photos/1624487/samosa-snack-1624487.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥟" },
+    { name: "Bonbolino", price: 70, img: "https://images.pexels.com/photos/1437267/doughnut-sugar-1437267.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍩" },
+    { name: "Anbesha", price: 50, img: "https://images.pexels.com/photos/4004963/ethiopian-bread-4004963.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍪" }
+  ];
 
-    function save() { localStorage.setItem("cafe_cart", JSON.stringify(cart)); }
-    function load() { let saved = localStorage.getItem("cafe_cart"); if (saved) cart = JSON.parse(saved); }
+  // Juices & Shakes + Drinks (including espresso and special)
+  const drinks = [
+    { name: "Mango", price: 150, img: "https://images.pexels.com/photos/109275/mango-juice-fresh-109275.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥭" },
+    { name: "Avocado", price: 150, img: "https://images.pexels.com/photos/557508/avocado-drink-557508.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥑" },
+    { name: "Papaya", price: 150, img: "https://images.pexels.com/photos/1598175/papaya-smoothie-1598175.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍈" },
+    { name: "Espresso", price: 180, img: "https://images.pexels.com/photos/312418/espresso-coffee-cup-312418.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "☕" },
+    { name: "Pineapple", price: 180, img: "https://images.pexels.com/photos/133231/pineapple-juice-fresh-133231.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍍" },
+    { name: "Special (milk, vanilla, choc)", price: 250, img: "https://images.pexels.com/photos/302092/coffee-milk-foam-302092.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥤" },
+    { name: "Avocado Milk", price: 200, img: "https://images.pexels.com/photos/2613485/avocado-milk-shake-2613485.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥛" },
+    { name: "Banana Shake", price: 200, img: "https://images.pexels.com/photos/1340609/banana-smoothie-1340609.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍌" },
+    { name: "Papaya Shake", price: 200, img: "https://images.pexels.com/photos/3249316/papaya-smoothie-3249316.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍈" }
+  ];
 
-    function add(id) {
-        let item = MENU.find(i => i.id === id);
-        let existing = cart.find(i => i.id === id);
-        if (existing) existing.qty = (existing.qty || 1) + 1;
-        else cart.push({ ...item, qty: 1 });
-        save();
-        render();
-    }
+  const salads = [
+    { name: "Normal Salad", price: 260, img: "https://images.pexels.com/photos/1640777/fresh-garden-salad-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥗" },
+    { name: "Tuna Salad", price: 300, img: "https://images.pexels.com/photos/1640774/tuna-salad-bowl-1640774.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🐟" }
+  ];
 
-    function remove(id) {
-        cart = cart.filter(i => i.id !== id);
-        save();
-        render();
-    }
+  const extras = [
+    { name: "Egg", price: 25, img: "https://images.pexels.com/photos/162449/fried-egg-egg-162449.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥚" },
+    { name: "Mayonnaise", price: 30, img: "https://images.pexels.com/photos/1391350/mayonnaise-jar-1391350.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥄" }
+  ];
 
-    function update(id, delta) {
-        let item = cart.find(i => i.id === id);
-        if (item) {
-            item.qty = (item.qty || 1) + delta;
-            if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
-            save();
-            render();
-        }
-    }
+  const meatDishes = [
+    { name: "Quiet", price: 370, img: "https://images.pexels.com/photos/3979135/ethiopian-lamb-stew-3979135.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
+    { name: "Lamb Tibs", price: 600, img: "https://images.pexels.com/photos/699953/lamb-tibs-ethiopian-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
+    { name: "Lamb Kikil", price: 420, img: "https://images.pexels.com/photos/958547/ethiopian-lamb-958547.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍖" },
+    { name: "Cabbage with Meat", price: 350, img: "https://images.pexels.com/photos/1640775/cabbage-meat-stew-1640775.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥬" },
+    { name: "Quanta Firfir", price: 400, img: "https://images.pexels.com/photos/3979131/dried-beef-firfir-3979131.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
+    { name: "Meat Firfir", price: 350, img: "https://images.pexels.com/photos/3979130/ethiopian-meat-firfir-3979130.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
+    { name: "Tibs Firfir", price: 350, img: "https://images.pexels.com/photos/699953/tibs-firfir-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥘" },
+    { name: "Kitfo Firfir", price: 350, img: "https://images.pexels.com/photos/1063432/kitfo-ethiopian-1063432.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
+    { name: "Bozena with Tibs", price: 420, img: "https://images.pexels.com/photos/958546/ethiopian-bozena-958546.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
+    { name: "Combo Yefisik", price: 850, img: "https://images.pexels.com/photos/3026811/ethiopian-combo-platter-3026811.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥘" },
+    { name: "Bozena with Shero", price: 250, img: "https://images.pexels.com/photos/3979132/bozena-shero-3979132.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
+    { name: "Pasta with Meat", price: 270, img: "https://images.pexels.com/photos/1438672/meat-pasta-1438672.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍝" },
+    { name: "Rice with Meat", price: 280, img: "https://images.pexels.com/photos/1640778/meat-rice-bowl-1640778.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍚" }
+  ];
 
-    function total() {
-        return cart.reduce((sum, i) => sum + (i.price * (i.qty || 1)), 0);
-    }
+  // Helper: create card HTML with error handling for images (fallback emoji)
+  function generateCards(itemsArray) {
+    return itemsArray.map(item => {
+      // if image fails to load, we show fallback emoji inside an overlay but still keep card consistent
+      return `
+        <div class="menu-card">
+          <img class="card-img" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.onerror=null; this.src=''; this.style.background='#f3e5cf'; this.alt='${item.fallback}'; this.parentElement.querySelector('.img-fallback')?.remove(); const span = document.createElement('span'); span.className='img-fallback'; span.style.display='flex'; span.style.height='170px'; span.style.background='#f7efdf'; span.style.alignItems='center'; span.style.justifyContent='center'; span.style.fontSize='3rem'; span.innerText='${item.fallback}'; if(this.parentElement && !this.parentElement.querySelector('.img-fallback')) this.parentElement.insertBefore(span, this); this.style.display='none';">
+          <div class="card-info">
+            <span class="item-name">${item.name}</span>
+            <span class="price">${item.price} Br</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
 
-    function render() {
-        let menuHtml = `<h2>Menu</h2>`;
-        MENU.forEach(item => {
-            menuHtml += `
-                <div class="menu-item">
-                    <span><strong>${item.name}</strong></span>
-                    <span class="price">${item.price} ETB</span>
-                    <button onclick="add(${item.id})">+ Add</button>
-                </div>
-            `;
-        });
-        document.getElementById('menuList').innerHTML = menuHtml;
-
-        let cartHtml = "";
-        if (cart.length === 0) {
-            cartHtml = "No items yet";
-        } else {
-            cart.forEach(item => {
-                let qty = item.qty || 1;
-                cartHtml += `
-                    <div class="menu-item" style="margin-bottom:10px;">
-                        <span><strong>${item.name}</strong> x${qty}</span>
-                        <span>${item.price * qty} ETB</span>
-                        <div>
-                            <button onclick="update(${item.id}, -1)">-</button>
-                            <button onclick="update(${item.id}, 1)">+</button>
-                            <button onclick="remove(${item.id})" style="background:#c17b4c;">Remove</button>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-        document.getElementById('cartItems').innerHTML = cartHtml;
-        document.getElementById('totalPrice').innerText = `Total: ${total()} ETB`;
-    }
-
-    document.getElementById('orderBtn').onclick = () => {
-        let name = prompt("Your name:");
-        if (!name) return;
-        if (cart.length === 0) { alert("Cart is empty."); return; }
-        alert(`${name}, total: ${total()} ETB\nPay via TeleBirr 0911718700 or CBE 1000234567890`);
-        cart = [];
-        save();
-        render();
-    };
-
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-        btn.onclick = () => {
-            navigator.clipboard.writeText(btn.getAttribute('data-copy'));
-            alert("Copied!");
-        };
-    });
-
-    load();
-    render();
+  // inject all sections
+  document.getElementById('main-dishes-grid').innerHTML = generateCards(mainDishes);
+  document.getElementById('snacks-grid').innerHTML = generateCards(snacks);
+  document.getElementById('drinks-grid').innerHTML = generateCards(drinks);
+  document.getElementById('salads-grid').innerHTML = generateCards(salads);
+  document.getElementById('extras-grid').innerHTML = generateCards(extras);
+  document.getElementById('meat-grid').innerHTML = generateCards(meatDishes);
 </script>
 </body>
 </html>
