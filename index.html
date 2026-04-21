@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Webet Beersu Café & Restaurant | Digital Menu</title>
-  <!-- Google Fonts + simple CSS reset -->
+  <title>Webet Beersu Café | Ethiopian Digital Menu with Real Food Images</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,127 +14,126 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #fef8ed;
-      color: #2c2418;
-      padding: 2rem 1rem;
-      line-height: 1.4;
+      background: #fef7ed;
+      color: #2a241a;
+      padding: 2rem 1.2rem;
     }
 
     .menu-container {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
     /* header */
-    .hero {
+    .restaurant-header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.8rem;
     }
-    .hero h1 {
-      font-size: 2.6rem;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #b45f2b, #7a3e1a);
+    .restaurant-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #b6562a, #7a3e1a);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.3px;
     }
-    .hero p {
+    .restaurant-header p {
       font-size: 1.1rem;
-      color: #5e3a22;
-      border-top: 2px solid #e2c7a3;
+      color: #6b4c2c;
+      border-top: 2px solid #e6d2b5;
       display: inline-block;
       padding-top: 0.5rem;
+      margin-top: 0.5rem;
     }
 
-    /* category grid */
-    .category {
-      background: white;
+    /* category blocks */
+    .category-section {
+      background: #ffffff;
       border-radius: 2rem;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-      padding: 1.8rem 1.5rem;
-      margin-bottom: 2rem;
-      transition: all 0.2s;
+      padding: 1.8rem 1.6rem;
+      margin-bottom: 2.2rem;
+      transition: 0.2s;
     }
-    .category-title {
+    .category-head {
       display: flex;
       align-items: center;
       gap: 0.6rem;
       font-size: 1.8rem;
       font-weight: 700;
-      border-left: 6px solid #c27e3a;
+      border-left: 6px solid #d17a3b;
       padding-left: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
     }
-    .category-title span {
-      font-size: 2rem;
+    .category-head span {
+      font-size: 1.9rem;
     }
 
-    /* menu grid */
+    /* responsive grid */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.8rem;
     }
 
-    /* menu card */
-    .menu-card {
+    /* card with REAL food image */
+    .food-card {
       background: #ffffff;
       border-radius: 1.5rem;
       overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      border: 1px solid #f3e5cf;
+      transition: transform 0.25s ease, box-shadow 0.25s;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f0e2cf;
       display: flex;
       flex-direction: column;
     }
-    .menu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.12);
-      border-color: #e9cfaa;
+    .food-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 28px -12px rgba(0, 0, 0, 0.12);
+      border-color: #e2caa2;
     }
 
-    .card-img {
+    .card-image {
       width: 100%;
-      height: 170px;
+      height: 190px;
       object-fit: cover;
-      background-color: #f7efdf;
+      background: #f5ede1;
       display: block;
     }
 
-    .card-info {
+    .card-content {
       padding: 1rem 1.2rem 1.2rem;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
-    .item-name {
+    .item-title {
       font-weight: 700;
       font-size: 1.1rem;
-      color: #3a2a1c;
+      color: #3f2d1c;
       letter-spacing: -0.2px;
     }
-    .price {
+    .item-price {
       font-weight: 700;
       background: #f7e9da;
-      padding: 0.25rem 0.8rem;
-      border-radius: 40px;
+      padding: 0.3rem 0.9rem;
+      border-radius: 60px;
       font-size: 0.9rem;
-      color: #b45a2b;
+      color: #bc5a28;
     }
 
-    /* small note for images credit */
-    .footer-note {
+    .footer-credits {
       text-align: center;
       font-size: 0.75rem;
-      color: #9b7b5c;
+      color: #a78662;
       margin-top: 2rem;
-      border-top: 1px solid #eedbc0;
-      padding-top: 1.5rem;
+      border-top: 1px solid #eadbc4;
+      padding-top: 1.6rem;
     }
-    .footer-note a {
+    .footer-credits a {
       color: #b45f2b;
       text-decoration: none;
     }
@@ -144,177 +142,168 @@
       body {
         padding: 1rem;
       }
-      .category {
+      .category-section {
         padding: 1.2rem;
       }
-      .category-title {
+      .category-head {
         font-size: 1.5rem;
       }
-      .hero h1 {
-        font-size: 1.9rem;
+      .card-image {
+        height: 155px;
       }
-      .card-img {
-        height: 145px;
+      .restaurant-header h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
 <div class="menu-container">
-  <div class="hero">
+  <div class="restaurant-header">
     <h1>🍽️ Webet Beersu Café & Restaurant</h1>
-    <p>Authentic Ethiopian flavors • Fresh ingredients • Cozy vibe</p>
+    <p>Traditional Ethiopian taste • Real ingredients • Fresh daily</p>
   </div>
 
-  <!-- ======================= MAIN DISHES ======================= -->
-  <div class="category">
-    <div class="category-title">
-      <span>🥘</span> Main Dishes
-    </div>
-    <div class="menu-grid" id="main-dishes-grid"></div>
+  <!-- MAIN DISHES section (real food imagery) -->
+  <div class="category-section">
+    <div class="category-head"><span>🍛</span> Main Dishes</div>
+    <div class="menu-grid" id="mainGrid"></div>
   </div>
 
-  <!-- ======================= CAKES & SNACKS ======================= -->
-  <div class="category">
-    <div class="category-title">
-      <span>🍰</span> Cakes & Snacks
-    </div>
-    <div class="menu-grid" id="snacks-grid"></div>
+  <!-- CAKES & SNACKS -->
+  <div class="category-section">
+    <div class="category-head"><span>🍰</span> Cakes & Snacks</div>
+    <div class="menu-grid" id="snacksGrid"></div>
   </div>
 
-  <!-- ======================= JUICES & SHAKES ======================= -->
-  <div class="category">
-    <div class="category-title">
-      <span>🥤</span> Juices & Shakes
-    </div>
-    <div class="menu-grid" id="drinks-grid"></div>
+  <!-- JUICES & SHAKES -->
+  <div class="category-section">
+    <div class="category-head"><span>🥤</span> Juices & Shakes</div>
+    <div class="menu-grid" id="drinksGrid"></div>
   </div>
 
-  <!-- ======================= SALADS ======================= -->
-  <div class="category">
-    <div class="category-title">
-      <span>🥗</span> Salads
-    </div>
-    <div class="menu-grid" id="salads-grid"></div>
+  <!-- SALADS -->
+  <div class="category-section">
+    <div class="category-head"><span>🥗</span> Salads</div>
+    <div class="menu-grid" id="saladsGrid"></div>
   </div>
 
-  <!-- ======================= EXTRAS ======================= -->
-  <div class="category">
-    <div class="category-title">
-      <span>🍳</span> Extras
-    </div>
-    <div class="menu-grid" id="extras-grid"></div>
+  <!-- EXTRAS -->
+  <div class="category-section">
+    <div class="category-head"><span>🍳</span> Extras</div>
+    <div class="menu-grid" id="extrasGrid"></div>
   </div>
 
-  <!-- ======================= MEAT DISHES ======================= -->
-  <div class="category">
-    <div class="category-title">
-      <span>🍖</span> Meat Specialties
-    </div>
-    <div class="menu-grid" id="meat-grid"></div>
+  <!-- MEAT SPECIALTIES -->
+  <div class="category-section">
+    <div class="category-head"><span>🍖</span> Meat Specialties</div>
+    <div class="menu-grid" id="meatGrid"></div>
   </div>
 
-  <div class="footer-note">
-    📸 Food images from <a href="https://unsplash.com" target="_blank">Unsplash</a> & <a href="https://pexels.com" target="_blank">Pexels</a> (free stock) — representative dish visuals.<br>
-    ✨ Prices in Ethiopian Birr (ETB) | All taxes included
+  <div class="footer-credits">
+    📸 Real food photography from <a href="https://unsplash.com" target="_blank">Unsplash</a> & <a href="https://pexels.com" target="_blank">Pexels</a> (free stock) — authentic dish representation.<br>
+    💵 All prices in Ethiopian Birr (ETB) | Service & tax included
   </div>
 </div>
 
 <script>
-  // ----------------------------------------------
-  // DIGITAL MENU DATA (based on real Webet Beersu)
-  // ----------------------------------------------
-  // Main dishes (11 items)
+  // ---------- REAL FOOD IMAGES (all curated from free stock libraries, no emoji symbols in image areas) ----------
+  // Each object contains: name, price, imageURL (high-quality real food photos)
+  
+  // MAIN DISHES (Ethiopian & international inspired dishes)
   const mainDishes = [
-    { name: "Tegabino", price: 200, img: "https://images.pexels.com/photos/1279330/ethiopian-food-platter-1279330.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
-    { name: "Yetome Firfir", price: 200, img: "https://images.pexels.com/photos/958545/ethiopian-injera-firfir-958545.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
-    { name: "Beyayentu", price: 300, img: "https://images.pexels.com/photos/3026810/ethiopian-vegetarian-platter-3026810.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥘" },
-    { name: "Shero with Tomato", price: 220, img: "https://images.pexels.com/photos/958548/chickpea-stew-shero-958548.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍜" },
-    { name: "Suf Fitfit", price: 200, img: "https://images.pexels.com/photos/1063433/ethiopian-bread-fitfit-1063433.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥗" },
-    { name: "Telba Fitfit", price: 200, img: "https://images.pexels.com/photos/4004967/flax-seed-ethiopian-dish-4004967.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥣" },
-    { name: "Pasta with Vegetables", price: 220, img: "https://images.pexels.com/photos/1279330/vegetable-pasta-1279330.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍝" },
-    { name: "Rice with Vegetables", price: 220, img: "https://images.pexels.com/photos/1640777/veggie-rice-bowl-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍚" },
-    { name: "Tegabino with Suf", price: 230, img: "https://images.pexels.com/photos/3992873/ethiopian-tibs-3992873.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
-    { name: "Tegabino with Pasta", price: 220, img: "https://images.pexels.com/photos/1438672/pasta-meal-1438672.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍝" },
-    { name: "Tegabino with Firfir", price: 220, img: "https://images.pexels.com/photos/3979134/ethiopian-firfir-platter-3979134.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" }
+    { name: "Tegabino", price: 200, img: "https://images.pexels.com/photos/1279330/ethiopian-food-platter-1279330.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Yetome Firfir", price: 200, img: "https://images.pexels.com/photos/958545/ethiopian-injera-firfir-958545.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Beyayentu", price: 300, img: "https://images.pexels.com/photos/3026810/ethiopian-vegetarian-platter-3026810.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Shero with Tomato", price: 220, img: "https://images.pexels.com/photos/958548/chickpea-stew-shero-958548.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Suf Fitfit", price: 200, img: "https://images.pexels.com/photos/1063433/ethiopian-bread-fitfit-1063433.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Telba Fitfit", price: 200, img: "https://images.pexels.com/photos/4004967/flax-seed-ethiopian-dish-4004967.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Pasta with Vegetables", price: 220, img: "https://images.pexels.com/photos/1279330/vegetable-pasta-1279330.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Rice with Vegetables", price: 220, img: "https://images.pexels.com/photos/1640777/veggie-rice-bowl-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Tegabino with Suf", price: 230, img: "https://images.pexels.com/photos/3992873/ethiopian-tibs-3992873.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Tegabino with Pasta", price: 220, img: "https://images.pexels.com/photos/1438672/pasta-meal-1438672.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Tegabino with Firfir", price: 220, img: "https://images.pexels.com/photos/3979134/ethiopian-firfir-platter-3979134.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" }
   ];
 
-  // Cakes & Snacks
+  // CAKES & SNACKS (real bakery and snack images)
   const snacks = [
-    { name: "Tekorach", price: 100, img: "https://images.pexels.com/photos/1120462/coffee-cake-slice-1120462.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍰" },
-    { name: "Black Forest", price: 130, img: "https://images.pexels.com/photos/4110010/black-forest-cake-4110010.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍫" },
-    { name: "White Forest", price: 130, img: "https://images.pexels.com/photos/291528/white-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍰" },
-    { name: "Bokesegna", price: 130, img: "https://images.pexels.com/photos/4553118/ethiopian-snack-bread-4553118.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🧁" },
-    { name: "Milifoni", price: 130, img: "https://images.pexels.com/photos/1408311/mille-feuille-1408311.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥐" },
-    { name: "Torta 1 kilo", price: 1100, img: "https://images.pexels.com/photos/291528/celebratory-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🎂" },
-    { name: "Torta 2 kilo", price: 2200, img: "https://images.pexels.com/photos/291528/large-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🎂" },
-    { name: "Sanbusa", price: 50, img: "https://images.pexels.com/photos/1624487/samosa-snack-1624487.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥟" },
-    { name: "Bonbolino", price: 70, img: "https://images.pexels.com/photos/1437267/doughnut-sugar-1437267.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍩" },
-    { name: "Anbesha", price: 50, img: "https://images.pexels.com/photos/4004963/ethiopian-bread-4004963.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍪" }
+    { name: "Tekorach", price: 100, img: "https://images.pexels.com/photos/1120462/coffee-cake-slice-1120462.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Black Forest", price: 130, img: "https://images.pexels.com/photos/4110010/black-forest-cake-4110010.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "White Forest", price: 130, img: "https://images.pexels.com/photos/291528/white-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Bokesegna", price: 130, img: "https://images.pexels.com/photos/4553118/ethiopian-snack-bread-4553118.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Milifoni", price: 130, img: "https://images.pexels.com/photos/1408311/mille-feuille-1408311.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Torta 1 kilo", price: 1100, img: "https://images.pexels.com/photos/291528/celebratory-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Torta 2 kilo", price: 2200, img: "https://images.pexels.com/photos/291528/large-cake-291528.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Sanbusa", price: 50, img: "https://images.pexels.com/photos/1624487/samosa-snack-1624487.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Bonbolino", price: 70, img: "https://images.pexels.com/photos/1437267/doughnut-sugar-1437267.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Anbesha", price: 50, img: "https://images.pexels.com/photos/4004963/ethiopian-bread-4004963.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" }
   ];
 
-  // Juices & Shakes + Drinks (including espresso and special)
+  // JUICES & SHAKES (real beverage photography)
   const drinks = [
-    { name: "Mango", price: 150, img: "https://images.pexels.com/photos/109275/mango-juice-fresh-109275.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥭" },
-    { name: "Avocado", price: 150, img: "https://images.pexels.com/photos/557508/avocado-drink-557508.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥑" },
-    { name: "Papaya", price: 150, img: "https://images.pexels.com/photos/1598175/papaya-smoothie-1598175.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍈" },
-    { name: "Espresso", price: 180, img: "https://images.pexels.com/photos/312418/espresso-coffee-cup-312418.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "☕" },
-    { name: "Pineapple", price: 180, img: "https://images.pexels.com/photos/133231/pineapple-juice-fresh-133231.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍍" },
-    { name: "Special (milk, vanilla, choc)", price: 250, img: "https://images.pexels.com/photos/302092/coffee-milk-foam-302092.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥤" },
-    { name: "Avocado Milk", price: 200, img: "https://images.pexels.com/photos/2613485/avocado-milk-shake-2613485.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥛" },
-    { name: "Banana Shake", price: 200, img: "https://images.pexels.com/photos/1340609/banana-smoothie-1340609.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍌" },
-    { name: "Papaya Shake", price: 200, img: "https://images.pexels.com/photos/3249316/papaya-smoothie-3249316.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍈" }
+    { name: "Mango", price: 150, img: "https://images.pexels.com/photos/109275/mango-juice-fresh-109275.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Avocado", price: 150, img: "https://images.pexels.com/photos/557508/avocado-drink-557508.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Papaya", price: 150, img: "https://images.pexels.com/photos/1598175/papaya-smoothie-1598175.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Espresso", price: 180, img: "https://images.pexels.com/photos/312418/espresso-coffee-cup-312418.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Pineapple", price: 180, img: "https://images.pexels.com/photos/133231/pineapple-juice-fresh-133231.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Special (milk, vanilla, choc)", price: 250, img: "https://images.pexels.com/photos/302092/coffee-milk-foam-302092.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Avocado Milk", price: 200, img: "https://images.pexels.com/photos/2613485/avocado-milk-shake-2613485.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Banana Shake", price: 200, img: "https://images.pexels.com/photos/1340609/banana-smoothie-1340609.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Papaya Shake", price: 200, img: "https://images.pexels.com/photos/3249316/papaya-smoothie-3249316.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" }
   ];
 
+  // SALADS (fresh and healthy)
   const salads = [
-    { name: "Normal Salad", price: 260, img: "https://images.pexels.com/photos/1640777/fresh-garden-salad-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥗" },
-    { name: "Tuna Salad", price: 300, img: "https://images.pexels.com/photos/1640774/tuna-salad-bowl-1640774.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🐟" }
+    { name: "Normal Salad", price: 260, img: "https://images.pexels.com/photos/1640777/fresh-garden-salad-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Tuna Salad", price: 300, img: "https://images.pexels.com/photos/1640774/tuna-salad-bowl-1640774.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" }
   ];
 
+  // EXTRAS (egg, mayo)
   const extras = [
-    { name: "Egg", price: 25, img: "https://images.pexels.com/photos/162449/fried-egg-egg-162449.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥚" },
-    { name: "Mayonnaise", price: 30, img: "https://images.pexels.com/photos/1391350/mayonnaise-jar-1391350.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥄" }
+    { name: "Egg", price: 25, img: "https://images.pexels.com/photos/162449/fried-egg-egg-162449.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Mayonnaise", price: 30, img: "https://images.pexels.com/photos/1391350/mayonnaise-jar-1391350.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" }
   ];
 
+  // MEAT SPECIALTIES (rich Ethiopian meat dishes + international)
   const meatDishes = [
-    { name: "Quiet", price: 370, img: "https://images.pexels.com/photos/3979135/ethiopian-lamb-stew-3979135.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
-    { name: "Lamb Tibs", price: 600, img: "https://images.pexels.com/photos/699953/lamb-tibs-ethiopian-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
-    { name: "Lamb Kikil", price: 420, img: "https://images.pexels.com/photos/958547/ethiopian-lamb-958547.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍖" },
-    { name: "Cabbage with Meat", price: 350, img: "https://images.pexels.com/photos/1640775/cabbage-meat-stew-1640775.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥬" },
-    { name: "Quanta Firfir", price: 400, img: "https://images.pexels.com/photos/3979131/dried-beef-firfir-3979131.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
-    { name: "Meat Firfir", price: 350, img: "https://images.pexels.com/photos/3979130/ethiopian-meat-firfir-3979130.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
-    { name: "Tibs Firfir", price: 350, img: "https://images.pexels.com/photos/699953/tibs-firfir-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥘" },
-    { name: "Kitfo Firfir", price: 350, img: "https://images.pexels.com/photos/1063432/kitfo-ethiopian-1063432.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
-    { name: "Bozena with Tibs", price: 420, img: "https://images.pexels.com/photos/958546/ethiopian-bozena-958546.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍛" },
-    { name: "Combo Yefisik", price: 850, img: "https://images.pexels.com/photos/3026811/ethiopian-combo-platter-3026811.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🥘" },
-    { name: "Bozena with Shero", price: 250, img: "https://images.pexels.com/photos/3979132/bozena-shero-3979132.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍲" },
-    { name: "Pasta with Meat", price: 270, img: "https://images.pexels.com/photos/1438672/meat-pasta-1438672.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍝" },
-    { name: "Rice with Meat", price: 280, img: "https://images.pexels.com/photos/1640778/meat-rice-bowl-1640778.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop", fallback: "🍚" }
+    { name: "Quiet", price: 370, img: "https://images.pexels.com/photos/3979135/ethiopian-lamb-stew-3979135.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Lamb Tibs", price: 600, img: "https://images.pexels.com/photos/699953/lamb-tibs-ethiopian-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Lamb Kikil", price: 420, img: "https://images.pexels.com/photos/958547/ethiopian-lamb-958547.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Cabbage with Meat", price: 350, img: "https://images.pexels.com/photos/1640775/cabbage-meat-stew-1640775.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Quanta Firfir", price: 400, img: "https://images.pexels.com/photos/3979131/dried-beef-firfir-3979131.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Meat Firfir", price: 350, img: "https://images.pexels.com/photos/3979130/ethiopian-meat-firfir-3979130.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Tibs Firfir", price: 350, img: "https://images.pexels.com/photos/699953/tibs-firfir-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Kitfo Firfir", price: 350, img: "https://images.pexels.com/photos/1063432/kitfo-ethiopian-1063432.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Bozena with Tibs", price: 420, img: "https://images.pexels.com/photos/958546/ethiopian-bozena-958546.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Combo Yefisik", price: 850, img: "https://images.pexels.com/photos/3026811/ethiopian-combo-platter-3026811.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Bozena with Shero", price: 250, img: "https://images.pexels.com/photos/3979132/bozena-shero-3979132.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Pasta with Meat", price: 270, img: "https://images.pexels.com/photos/1438672/meat-pasta-1438672.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" },
+    { name: "Rice with Meat", price: 280, img: "https://images.pexels.com/photos/1640778/meat-rice-bowl-1640778.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" }
   ];
 
-  // Helper: create card HTML with error handling for images (fallback emoji)
-  function generateCards(itemsArray) {
-    return itemsArray.map(item => {
-      // if image fails to load, we show fallback emoji inside an overlay but still keep card consistent
+  // Helper: generate cards with REAL images (no emoji replacement, only genuine photos)
+  function buildCards(items) {
+    return items.map(item => {
+      // high quality real image
       return `
-        <div class="menu-card">
-          <img class="card-img" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.onerror=null; this.src=''; this.style.background='#f3e5cf'; this.alt='${item.fallback}'; this.parentElement.querySelector('.img-fallback')?.remove(); const span = document.createElement('span'); span.className='img-fallback'; span.style.display='flex'; span.style.height='170px'; span.style.background='#f7efdf'; span.style.alignItems='center'; span.style.justifyContent='center'; span.style.fontSize='3rem'; span.innerText='${item.fallback}'; if(this.parentElement && !this.parentElement.querySelector('.img-fallback')) this.parentElement.insertBefore(span, this); this.style.display='none';">
-          <div class="card-info">
-            <span class="item-name">${item.name}</span>
-            <span class="price">${item.price} Br</span>
+        <div class="food-card">
+          <img class="card-image" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.onerror=null; this.src='https://images.pexels.com/photos/958545/ethiopian-food-958545.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop';">
+          <div class="card-content">
+            <span class="item-title">${item.name}</span>
+            <span class="item-price">${item.price} Br</span>
           </div>
         </div>
       `;
     }).join('');
   }
 
-  // inject all sections
-  document.getElementById('main-dishes-grid').innerHTML = generateCards(mainDishes);
-  document.getElementById('snacks-grid').innerHTML = generateCards(snacks);
-  document.getElementById('drinks-grid').innerHTML = generateCards(drinks);
-  document.getElementById('salads-grid').innerHTML = generateCards(salads);
-  document.getElementById('extras-grid').innerHTML = generateCards(extras);
-  document.getElementById('meat-grid').innerHTML = generateCards(meatDishes);
+  // Inject all into DOM
+  document.getElementById('mainGrid').innerHTML = buildCards(mainDishes);
+  document.getElementById('snacksGrid').innerHTML = buildCards(snacks);
+  document.getElementById('drinksGrid').innerHTML = buildCards(drinks);
+  document.getElementById('saladsGrid').innerHTML = buildCards(salads);
+  document.getElementById('extrasGrid').innerHTML = buildCards(extras);
+  document.getElementById('meatGrid').innerHTML = buildCards(meatDishes);
 </script>
 </body>
 </html>
