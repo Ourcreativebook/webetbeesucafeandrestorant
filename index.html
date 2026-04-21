@@ -16,6 +16,16 @@
         }
         .container { max-width: 1400px; margin: 0 auto; }
         
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
         /* Header */
         .hero { background: linear-gradient(135deg, #1e3c2c, #2a4a35); border-radius: 2rem; padding: 2rem; margin-bottom: 1.5rem; color: white; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
         .brand h1 { font-size: 1.8rem; font-weight: 800; }
@@ -60,6 +70,7 @@
         
         @media (max-width: 900px) {
             .menu-grid { grid-template-columns: 1fr; }
+            .hero-image { height: 200px; }
         }
         @media (min-width: 901px) {
             .two-column { display: grid; grid-template-columns: 1fr 380px; gap: 2rem; }
@@ -70,6 +81,9 @@
 </head>
 <body>
 <div class="container">
+    <!-- HERO IMAGE - Ethiopian Food Spread -->
+    <img class="hero-image" src="https://images.unsplash.com/photo-1623238925906-bd5c3eab6bfc?w=1400&h=400&fit=crop" alt="Ethiopian Traditional Food Platter - Injera with Doro Wat, Tibs and Vegetables">
+
     <div class="hero">
         <div class="brand">
             <h1><i class="fas fa-mug-hot"></i> WEBET BEERSU CAFE & RESTAURANT</h1>
@@ -134,29 +148,29 @@
 </div>
 
 <script>
-    // All images are from Unsplash - verified food-only images
+    // ALL IMAGES from Unsplash - Verified food-only images
     const MENU_ITEMS = [
-        // Ethiopian Traditional - REAL Ethiopian food images from Unsplash
-        { id: 1, name: "ታልቅ / Quiet", price: 370, category: "ethiopian", img: "https://images.unsplash.com/photo-1623238925906-bd5c3eab6bfc?w=400&h=300&fit=crop", desc: "Slow cooked meat with berbere", popular: false },
-        { id: 2, name: "የባማ ቀብስ / Yebeg tibes", price: 600, category: "ethiopian", img: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400&h=300&fit=crop", desc: "Juicy lamb tibs with rosemary", popular: true },
-        { id: 3, name: "የባማ ቅቅል / Yebeg kikil", price: 420, category: "ethiopian", img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop", desc: "Tender lamb stew", popular: false },
-        { id: 4, name: "ጎመን በስጋ / Gomen Bisega", price: 350, category: "ethiopian", img: "https://images.unsplash.com/photo-1625937287926-7dbd7b2a02c4?w=400&h=300&fit=crop", desc: "Collard greens with beef", popular: false },
-        { id: 5, name: "ክትፎ ፍርፍር / Kitfo Firfir", price: 350, category: "ethiopian", img: "https://images.unsplash.com/photo-1625723048608-791ac92c21fc?w=400&h=300&fit=crop", desc: "Spiced minced meat", popular: false },
+        // Ethiopian Traditional Food
+        { id: 1, name: "ታልቅ / Quiet", price: 370, category: "ethiopian", img: "https://images.unsplash.com/photo-1623238925906-bd5c3eab6bfc?w=400&h=300&fit=crop", desc: "Slow cooked meat with berbere spice", popular: false },
+        { id: 2, name: "የባማ ቀብስ / Yebeg tibes", price: 600, category: "ethiopian", img: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400&h=300&fit=crop", desc: "Juicy lamb tibs with rosemary and onions", popular: true },
+        { id: 3, name: "የባማ ቅቅል / Yebeg kikil", price: 420, category: "ethiopian", img: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=300&fit=crop", desc: "Tender lamb stew with aromatic spices", popular: false },
+        { id: 4, name: "ጎመን በስጋ / Gomen Bisega", price: 350, category: "ethiopian", img: "https://images.unsplash.com/photo-1625937287926-7dbd7b2a02c4?w=400&h=300&fit=crop", desc: "Collard greens with tender beef", popular: false },
+        { id: 5, name: "ክትፎ ፍርፍር / Kitfo Firfir", price: 350, category: "ethiopian", img: "https://images.unsplash.com/photo-1625723048608-791ac92c21fc?w=400&h=300&fit=crop", desc: "Spiced minced meat with mitmita", popular: false },
         { id: 6, name: "ከምበ የቆስክ / Combo Yefisik", price: 850, category: "ethiopian", img: "https://images.unsplash.com/photo-1629783910526-28e8674f1c8d?w=400&h=300&fit=crop", desc: "Meat combo platter - feast for two", popular: true },
         
         // Burgers & Pizza
-        { id: 7, name: "Normal Burger", price: 420, category: "burgers", img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop", desc: "Classic beef burger", popular: false },
-        { id: 8, name: "Cheese Burger", price: 470, category: "burgers", img: "https://images.unsplash.com/photo-1551782450-17144efb9c50?w=400&h=300&fit=crop", desc: "With cheddar cheese", popular: true },
-        { id: 9, name: "Special Large Pizza", price: 850, category: "burgers", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop", desc: "Loaded special pizza", popular: true },
-        { id: 10, name: "Beef Large Pizza", price: 670, category: "burgers", img: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&h=300&fit=crop", desc: "Beef topping pizza", popular: false },
+        { id: 7, name: "Normal Burger", price: 420, category: "burgers", img: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop", desc: "Classic beef burger with fresh veggies", popular: false },
+        { id: 8, name: "Cheese Burger", price: 470, category: "burgers", img: "https://images.unsplash.com/photo-1551782450-17144efb9c50?w=400&h=300&fit=crop", desc: "With melted cheddar cheese", popular: true },
+        { id: 9, name: "Special Large Pizza", price: 850, category: "burgers", img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop", desc: "Loaded special pizza, family size", popular: true },
+        { id: 10, name: "Beef Large Pizza", price: 670, category: "burgers", img: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&h=300&fit=crop", desc: "Generous beef topping pizza", popular: false },
         
-        // Vegetarian - REAL vegetarian Ethiopian food
-        { id: 11, name: "በየአይነት / Beyayentu", price: 300, category: "veg", img: "https://images.unsplash.com/photo-1626808642875-0aa545482dfb?w=400&h=300&fit=crop", desc: "Mixed veg platter - variety of flavors", popular: true },
-        { id: 12, name: "Special ful", price: 200, category: "veg", img: "https://images.unsplash.com/photo-1627662052342-6e5f1cf1e94b?w=400&h=300&fit=crop", desc: "Fava beans breakfast", popular: false },
+        // Vegetarian & Breakfast - REAL Ethiopian vegetarian
+        { id: 11, name: "በየአይነት / Beyayentu", price: 300, category: "veg", img: "https://images.unsplash.com/photo-1626808642875-0aa545482dfb?w=400&h=300&fit=crop", desc: "Mixed veg platter - variety of Ethiopian flavors", popular: true },
+        { id: 12, name: "Special ful", price: 200, category: "veg", img: "https://images.unsplash.com/photo-1627662052342-6e5f1cf1e94b?w=400&h=300&fit=crop", desc: "Fava beans breakfast with spices", popular: false },
         { id: 13, name: "ሽሮ በቲማተም / Shero Betimatim", price: 220, category: "veg", img: "https://images.unsplash.com/photo-1625938144755-652e08e359b7?w=400&h=300&fit=crop", desc: "Chickpea stew with tomato", popular: false },
         
         // Desserts & Drinks
-        { id: 14, name: "Black Forest", price: 130, category: "desserts", img: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop", desc: "Chocolate cake", popular: true },
+        { id: 14, name: "Black Forest", price: 130, category: "desserts", img: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&h=300&fit=crop", desc: "Chocolate cake with cherry filling", popular: true },
         { id: 15, name: "Mango Juice", price: 150, category: "desserts", img: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400&h=300&fit=crop", desc: "Fresh mango juice", popular: false },
         { id: 16, name: "Avocado Juice", price: 150, category: "desserts", img: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&h=300&fit=crop", desc: "Creamy avocado juice", popular: false },
         { id: 17, name: "Special Juice", price: 250, category: "desserts", img: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=400&h=300&fit=crop", desc: "Mix of milk, vanilla, chocolate", popular: true }
@@ -252,8 +266,8 @@
         if (cart.length === 0) { alert("Your cart is empty."); return; }
         let total = cart.reduce((sum, i) => sum + (MENU_ITEMS.find(x => x.id === i.id).price * i.quantity), 0);
         let itemsText = cart.map(i => `${MENU_ITEMS.find(x => x.id === i.id).name} x${i.quantity} = ${MENU_ITEMS.find(x => x.id === i.id).price * i.quantity} ETB`).join("\n");
-        let message = `🛒 NEW ORDER - Webet Beersu\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address || "Pickup"}\n\nItems:\n${itemsText}\n\nTOTAL: ${total} ETB\n\nThank you!`;
-        alert("Order summary copied. Please complete payment via TeleBirr or CBE.");
+        let message = `🛒 NEW ORDER - Webet Beersu\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address || "Pickup"}\n\nItems:\n${itemsText}\n\nTOTAL: ${total} ETB\n\nThank you for choosing Webet Beersu!`;
+        alert("✅ Order summary copied! Please complete payment via TeleBirr or CBE.");
         navigator.clipboard.writeText(message);
     }
 
