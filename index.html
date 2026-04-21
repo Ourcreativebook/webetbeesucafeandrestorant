@@ -1,498 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Webet Beersu Cafe | Digital Menu & Order</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Webet Beersu Cafe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f7f3e9;
-            color: #2c221b;
-            line-height: 1.4;
-        }
-
-        .app-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #1e3c2c 0%, #2a4a35 100%);
-            border-radius: 2rem;
-            padding: 1.5rem 2rem;
-            margin-bottom: 2rem;
-            color: white;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand h1 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .brand p {
-            opacity: 0.9;
-            margin-top: 0.25rem;
-            font-size: 0.9rem;
-        }
-
-        .info-badge {
-            background: rgba(255,255,255,0.15);
-            padding: 0.75rem 1.25rem;
-            border-radius: 2rem;
-            text-align: right;
-        }
-
-        .info-badge .phone {
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .search-bar {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border-radius: 3rem;
-            border: 1px solid #e2dcd2;
-            background: white;
-            font-family: inherit;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #e2dcd2;
-            padding-bottom: 0.5rem;
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            font-weight: 600;
-            border-radius: 40px;
-            cursor: pointer;
-            color: #4a3b2f;
-        }
-
-        .tab-btn.active {
-            background: #c17b4c;
-            color: white;
-        }
-
-        .menu-order-grid {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 2rem;
-        }
-
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .menu-card {
-            background: white;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.2s;
-            position: relative;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #c17b4c;
-            color: white;
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-
-        .card-img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-            background: #e9dfd1;
-        }
-
-        .card-content {
-            padding: 1rem;
-        }
-
-        .item-title {
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .item-price {
-            color: #c17b4c;
-            font-weight: 800;
-        }
-
-        .item-desc {
-            font-size: 0.75rem;
-            color: #7a6a5c;
-            margin-bottom: 1rem;
-        }
-
-        .add-btn {
-            background: #1e3c2c;
-            border: none;
-            color: white;
-            padding: 0.5rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .add-btn:hover {
-            background: #c17b4c;
-        }
-
-        .order-sidebar {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            position: sticky;
-            top: 1rem;
-            height: fit-content;
-        }
-
-        .order-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .total-row {
-            font-weight: 800;
-            font-size: 1.3rem;
-            display: flex;
-            justify-content: space-between;
-            margin: 1rem 0;
-            padding-top: 1rem;
-            border-top: 2px dashed #ddd;
-        }
-
-        .customer-form input, .customer-form textarea {
-            width: 100%;
-            padding: 0.7rem;
-            margin-bottom: 0.7rem;
-            border: 1px solid #e2dcd2;
-            border-radius: 1rem;
-        }
-
-        .place-order-btn {
-            background: #c17b4c;
-            color: white;
-            border: none;
-            padding: 0.8rem;
-            width: 100%;
-            border-radius: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .payment-block {
-            background: #faf7f2;
-            border-radius: 1rem;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-
-        .copy-btn {
-            background: #e9e0d4;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            margin-left: 8px;
-        }
-
-        .footer {
-            margin-top: 3rem;
-            background: #1e2a24;
-            color: #e2dcd2;
-            border-radius: 2rem 2rem 1rem 1rem;
-            padding: 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-col h4 {
-            color: #c17b4c;
-            margin-bottom: 1rem;
-        }
-
-        .developer-link {
-            color: #c17b4c;
-            text-decoration: none;
-        }
-
-        @media (max-width: 800px) {
-            .menu-order-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-image {
-                height: 200px;
-            }
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            .info-badge {
-                text-align: center;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #fef8ed; padding: 20px; }
+        .header { background: #1e3c2c; color: white; padding: 30px; border-radius: 20px; text-align: center; }
+        .menu-item { background: white; margin: 10px 0; padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .price { color: #c17b4c; font-weight: bold; }
+        button { background: #1e3c2c; color: white; border: none; padding: 8px 20px; border-radius: 30px; cursor: pointer; }
+        .cart { background: white; margin-top: 20px; padding: 20px; border-radius: 20px; max-width: 600px; margin: 20px auto; }
+        .total { font-size: 1.3rem; font-weight: bold; margin: 15px 0; }
+        .copy-btn { background: #e0d6c8; color: #1e3c2c; padding: 4px 12px; border-radius: 20px; border: none; cursor: pointer; }
+        footer { text-align: center; margin-top: 30px; color: #5a4a3a; }
+        @media (max-width: 600px) { .menu-item { flex-direction: column; gap: 10px; text-align: center; } }
     </style>
 </head>
 <body>
-<div class="app-container">
-    <!-- Hero Image - Ethiopian Food (Pixabay CDN - Reliable) -->
-    <img class="hero-image" src="https://cdn.pixabay.com/photo/2021/01/30/07/51/ethiopian-5964260_1280.jpg" alt="Ethiopian Traditional Food Platter - Injera with Doro Wat and Tibs">
 
-    <div class="hero">
-        <div class="brand">
-            <h1><i class="fas fa-mug-hot"></i> WEBET BEERSU CAFE & RESTAURANT</h1>
-            <p>Addis Ababa · ጥሩ አገልግሎት ያለው ምግብ</p>
-            <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
-                <span><i class="fas fa-truck"></i> Fast Delivery</span>
-                <span><i class="far fa-clock"></i> 30-45 min</span>
-                <span><i class="fas fa-store"></i> Easy Pickup</span>
-            </div>
-        </div>
-        <div class="info-badge">
-            <div class="phone">📞 0911718700</div>
-            <div>☕ Traditional Coffee Ceremony</div>
-        </div>
-    </div>
-
-    <input type="text" id="searchInput" class="search-bar" placeholder="🔍 Search menu...">
-
-    <div class="tabs">
-        <button class="tab-btn active" data-cat="all">All Items</button>
-        <button class="tab-btn" data-cat="ethiopian">Meat & Traditional</button>
-        <button class="tab-btn" data-cat="burgers">Burgers & Pizza</button>
-        <button class="tab-btn" data-cat="veg">Vegetarian</button>
-        <button class="tab-btn" data-cat="desserts">Desserts & Drinks</button>
-    </div>
-
-    <div class="menu-order-grid">
-        <div id="menuContainer"></div>
-
-        <div class="order-sidebar" id="orderSidebar">
-            <div class="order-title">
-                <span>Your Order</span>
-                <button class="clear-btn" id="clearOrderBtn" style="background:none; border:1px solid #c17b4c; padding:5px 12px; border-radius:40px; cursor:pointer;">Clear</button>
-            </div>
-            <div id="orderItemsList">No items yet</div>
-            <div class="total-row">
-                <span>TOTAL</span>
-                <span id="totalPrice">0 ETB</span>
-            </div>
-
-            <div class="customer-form">
-                <input type="text" id="customerName" placeholder="Your Name">
-                <input type="tel" id="customerPhone" placeholder="Phone Number">
-                <textarea id="customerAddress" rows="2" placeholder="Delivery Address or 'Pickup'"></textarea>
-                <button class="place-order-btn" id="placeOrderBtn">Place Order</button>
-            </div>
-
-            <div class="payment-block">
-                <div><strong>Commercial Bank of Ethiopia</strong><br>1000234567890<br>Webet Beersu Cafe
-                    <button class="copy-btn" data-copy="1000234567890">Copy</button>
-                </div>
-                <div style="margin-top: 12px;"><strong>TeleBirr</strong><br>0911718700
-                    <button class="copy-btn" data-copy="0911718700">Copy</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Webet Beersu Cafe</h4>
-                <p>Addis Ababa, Ethiopia<br>📞 0911718700</p>
-            </div>
-            <div class="footer-col">
-                <h4>Hours</h4>
-                <p>Mon-Sat: 8AM - 10PM<br>Sun: 9AM - 9PM</p>
-            </div>
-            <div class="footer-col">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i> <i class="fab fa-telegram"></i>
-                </div>
-            </div>
-        </div>
-        <div class="copyright" style="text-align:center; margin-top:2rem; padding-top:1rem; border-top:1px solid #3a4a3f;">
-            © 2025 Webet Beersu Cafe | Developed by <a href="https://addispowerwebsolution.pages.dev/" target="_blank" class="developer-link">Addis Power Web Solution</a>
-        </div>
-    </footer>
+<div class="header">
+    <h1>WEBET BEERSU CAFE</h1>
+    <p>Addis Ababa | Call 0911718700</p>
 </div>
 
+<div id="menuList" style="max-width:600px; margin:20px auto;"></div>
+
+<div class="cart">
+    <h3>Your Order</h3>
+    <div id="cartItems">No items yet</div>
+    <div class="total" id="totalPrice">Total: 0 ETB</div>
+    <button id="orderBtn">Place Order</button>
+</div>
+
+<div class="cart">
+    <h3>Payment</h3>
+    <p><strong>CBE:</strong> 1000234567890 <button class="copy-btn" data-copy="1000234567890">Copy</button></p>
+    <p><strong>TeleBirr:</strong> 0911718700 <button class="copy-btn" data-copy="0911718700">Copy</button></p>
+</div>
+
+<footer>
+    <p>© Webet Beersu Cafe | Fast Delivery & Pickup</p>
+</footer>
+
 <script>
-    const MENU_ITEMS = [
-        { id: 1, name: "ታልቅ / Quiet", price: 370, category: "ethiopian", img: "https://cdn.pixabay.com/photo/2020/07/09/17/53/coffee-5387775_640.jpg", desc: "Slow cooked meat with berbere spice" },
-        { id: 2, name: "የባማ ቀብስ / Yebeg tibes", price: 600, category: "ethiopian", img: "https://cdn.pixabay.com/photo/2019/12/30/10/11/ethiopian-food-4729470_640.jpg", desc: "Juicy lamb tibs with rosemary", popular: true },
-        { id: 3, name: "የባማ ቅቅል / Yebeg kikil", price: 420, category: "ethiopian", img: "https://cdn.pixabay.com/photo/2019/12/30/10/12/ethiopian-food-4729471_640.jpg", desc: "Tender lamb stew" },
-        { id: 4, name: "ጎመን በስጋ / Gomen Bisega", price: 350, category: "ethiopian", img: "https://cdn.pixabay.com/photo/2019/12/30/10/12/ethiopian-food-4729473_640.jpg", desc: "Collard greens with beef" },
-        { id: 5, name: "ከምበ የቆስክ / Combo Yefisik", price: 850, category: "ethiopian", img: "https://cdn.pixabay.com/photo/2021/01/30/07/51/ethiopian-5964260_640.jpg", desc: "Meat combo platter", popular: true },
-        { id: 6, name: "Normal Burger", price: 420, category: "burgers", img: "https://cdn.pixabay.com/photo/2020/10/05/18/59/burger-5630677_640.jpg", desc: "Classic beef burger" },
-        { id: 7, name: "Cheese Burger", price: 470, category: "burgers", img: "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_640.jpg", desc: "With cheddar cheese", popular: true },
-        { id: 8, name: "Special Large Pizza", price: 850, category: "burgers", img: "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_640.jpg", desc: "Loaded special pizza", popular: true },
-        { id: 9, name: "በየአይነት / Beyayentu", price: 300, category: "veg", img: "https://cdn.pixabay.com/photo/2019/12/30/10/13/ethiopian-food-4729475_640.jpg", desc: "Mixed veg platter", popular: true },
-        { id: 10, name: "Special ful", price: 200, category: "veg", img: "https://cdn.pixabay.com/photo/2017/06/29/20/04/breakfast-2455632_640.jpg", desc: "Fava beans breakfast" },
-        { id: 11, name: "Black Forest", price: 130, category: "desserts", img: "https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_640.jpg", desc: "Chocolate cake", popular: true },
-        { id: 12, name: "Mango Juice", price: 150, category: "desserts", img: "https://cdn.pixabay.com/photo/2016/02/19/11/39/mango-1210026_640.jpg", desc: "Fresh mango juice" }
+    const MENU = [
+        { id: 1, name: "Beyaynetu (Mixed Veg)", price: 300 },
+        { id: 2, name: "Yebeg Tibs (Lamb)", price: 600 },
+        { id: 3, name: "Gomen Bisega", price: 350 },
+        { id: 4, name: "Special Pizza", price: 850 },
+        { id: 5, name: "Cheese Burger", price: 470 },
+        { id: 6, name: "Mango Juice", price: 150 }
     ];
 
     let cart = [];
-    let currentTab = "all";
-    let searchQuery = "";
 
-    function saveCart() { localStorage.setItem("webet_cart", JSON.stringify(cart)); }
-    function loadCart() { const saved = localStorage.getItem("webet_cart"); if (saved) { cart = JSON.parse(saved); } renderCart(); }
+    function save() { localStorage.setItem("cafe_cart", JSON.stringify(cart)); }
+    function load() { let saved = localStorage.getItem("cafe_cart"); if (saved) cart = JSON.parse(saved); }
 
-    function addToCart(id) {
-        const existing = cart.find(i => i.id === id);
-        if (existing) existing.quantity += 1;
-        else cart.push({ id, quantity: 1 });
-        saveCart();
-        renderCart();
+    function add(id) {
+        let item = MENU.find(i => i.id === id);
+        let existing = cart.find(i => i.id === id);
+        if (existing) existing.qty = (existing.qty || 1) + 1;
+        else cart.push({ ...item, qty: 1 });
+        save();
+        render();
     }
 
-    function updateQuantity(id, delta) {
-        const idx = cart.findIndex(i => i.id === id);
-        if (idx !== -1) {
-            const newQty = cart[idx].quantity + delta;
-            if (newQty <= 0) cart.splice(idx, 1);
-            else cart[idx].quantity = newQty;
-            saveCart();
-            renderCart();
+    function remove(id) {
+        cart = cart.filter(i => i.id !== id);
+        save();
+        render();
+    }
+
+    function update(id, delta) {
+        let item = cart.find(i => i.id === id);
+        if (item) {
+            item.qty = (item.qty || 1) + delta;
+            if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+            save();
+            render();
         }
     }
 
-    function clearCart() { cart = []; saveCart(); renderCart(); }
-
-    function renderCart() {
-        const orderDiv = document.getElementById('orderItemsList');
-        if (cart.length === 0) { orderDiv.innerHTML = 'No items yet — add from menu'; document.getElementById('totalPrice').innerText = '0 ETB'; return; }
-        let html = `<div>`;
-        let total = 0;
-        cart.forEach(c => {
-            const item = MENU_ITEMS.find(i => i.id === c.id);
-            total += item.price * c.quantity;
-            html += `<div style="display:flex; justify-content:space-between; margin-bottom:10px;">
-                        <div>${item.name} x${c.quantity}</div>
-                        <div>${item.price * c.quantity} ETB 
-                            <button class="qty-btn" data-id="${c.id}" data-delta="-1" style="background:#f0eae2; border:none; width:25px; border-radius:20px;">-</button>
-                            <button class="qty-btn" data-id="${c.id}" data-delta="1" style="background:#f0eae2; border:none; width:25px; border-radius:20px;">+</button>
-                            <button class="remove-item" data-id="${c.id}" style="background:none; border:none; color:#c17b4c;">✖</button>
-                        </div>
-                    </div>`;
-        });
-        html += `</div>`;
-        orderDiv.innerHTML = html;
-        document.getElementById('totalPrice').innerText = `${total} ETB`;
-        document.querySelectorAll('.qty-btn').forEach(btn => btn.addEventListener('click', () => updateQuantity(parseInt(btn.dataset.id), parseInt(btn.dataset.delta))));
-        document.querySelectorAll('.remove-item').forEach(btn => btn.addEventListener('click', () => { cart = cart.filter(i => i.id !== parseInt(btn.dataset.id)); saveCart(); renderCart(); }));
+    function total() {
+        return cart.reduce((sum, i) => sum + (i.price * (i.qty || 1)), 0);
     }
 
-    function renderMenu() {
-        const container = document.getElementById('menuContainer');
-        let filtered = MENU_ITEMS.filter(i => (currentTab === "all" || i.category === currentTab) && i.name.toLowerCase().includes(searchQuery.toLowerCase()));
-        let html = `<div class="items-grid">`;
-        filtered.forEach(item => {
-            html += `<div class="menu-card" style="position:relative;">
-                        ${item.popular ? '<div class="popular-badge">🔥 Popular</div>' : ''}
-                        <img class="card-img" src="${item.img}" loading="lazy">
-                        <div class="card-content">
-                            <div class="item-title"><span>${item.name}</span><span class="item-price">${item.price} ETB</span></div>
-                            <div class="item-desc">${item.desc}</div>
-                            <button class="add-btn" data-id="${item.id}">+ Add</button>
-                        </div>
-                    </div>`;
+    function render() {
+        let menuHtml = `<h2>Menu</h2>`;
+        MENU.forEach(item => {
+            menuHtml += `
+                <div class="menu-item">
+                    <span><strong>${item.name}</strong></span>
+                    <span class="price">${item.price} ETB</span>
+                    <button onclick="add(${item.id})">+ Add</button>
+                </div>
+            `;
         });
-        html += `</div>`;
-        container.innerHTML = html;
-        document.querySelectorAll('.add-btn').forEach(btn => btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.id))));
+        document.getElementById('menuList').innerHTML = menuHtml;
+
+        let cartHtml = "";
+        if (cart.length === 0) {
+            cartHtml = "No items yet";
+        } else {
+            cart.forEach(item => {
+                let qty = item.qty || 1;
+                cartHtml += `
+                    <div class="menu-item" style="margin-bottom:10px;">
+                        <span><strong>${item.name}</strong> x${qty}</span>
+                        <span>${item.price * qty} ETB</span>
+                        <div>
+                            <button onclick="update(${item.id}, -1)">-</button>
+                            <button onclick="update(${item.id}, 1)">+</button>
+                            <button onclick="remove(${item.id})" style="background:#c17b4c;">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        document.getElementById('cartItems').innerHTML = cartHtml;
+        document.getElementById('totalPrice').innerText = `Total: ${total()} ETB`;
     }
 
-    function placeOrder() {
-        const name = document.getElementById('customerName').value.trim();
-        const phone = document.getElementById('customerPhone').value.trim();
-        const address = document.getElementById('customerAddress').value.trim();
-        if (!name || !phone) { alert("Please enter your name and phone number."); return; }
+    document.getElementById('orderBtn').onclick = () => {
+        let name = prompt("Your name:");
+        if (!name) return;
         if (cart.length === 0) { alert("Cart is empty."); return; }
-        let total = cart.reduce((sum, i) => sum + (MENU_ITEMS.find(x => x.id === i.id).price * i.quantity), 0);
-        let itemsText = cart.map(i => `${MENU_ITEMS.find(x => x.id === i.id).name} x${i.quantity} = ${MENU_ITEMS.find(x => x.id === i.id).price * i.quantity} ETB`).join("\n");
-        let message = `🛒 NEW ORDER - Webet Beersu\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address || "Pickup"}\n\nItems:\n${itemsText}\n\nTOTAL: ${total} ETB`;
-        alert("Order summary copied! Please complete payment via TeleBirr or CBE.");
-        navigator.clipboard.writeText(message);
-    }
+        alert(`${name}, total: ${total()} ETB\nPay via TeleBirr 0911718700 or CBE 1000234567890`);
+        cart = [];
+        save();
+        render();
+    };
 
-    document.getElementById('clearOrderBtn')?.addEventListener('click', clearCart);
-    document.getElementById('placeOrderBtn')?.addEventListener('click', placeOrder);
-    document.getElementById('searchInput')?.addEventListener('input', (e) => { searchQuery = e.target.value; renderMenu(); });
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentTab = btn.dataset.cat;
-        renderMenu();
-    }));
-    document.querySelectorAll('.copy-btn').forEach(btn => btn.addEventListener('click', () => { navigator.clipboard.writeText(btn.dataset.copy); alert("Copied!"); }));
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.onclick = () => {
+            navigator.clipboard.writeText(btn.getAttribute('data-copy'));
+            alert("Copied!");
+        };
+    });
 
-    loadCart();
-    renderMenu();
+    load();
+    render();
 </script>
 </body>
 </html>
